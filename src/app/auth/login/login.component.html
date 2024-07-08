@@ -1,1 +1,35 @@
-<p>login works!</p>
+<div class="d-flex flex-column align-items-center justify-content-center min-vh-100">
+    <!-- Encabezado -->
+    <header class="text-white text-2xl mb-6">login back office portfolio max poblete</header>
+
+    <!-- Formulario de Inicio de Sesión -->
+    <form [formGroup]="formLogin" (ngSubmit)="login()" class="bg-primary shadow rounded px-4 py-3 mb-4"
+        style="width: 300px;">
+        <div class="mb-3">
+            <label class="form-label text-white" for="username">
+                Email.
+            </label>
+            <input formControlName="username"
+                class="form-control shadow-sm border-0 rounded py-2 px-3 text-dark bg-light" id="user" type="text" />
+            <div *ngIf="isValidfield('username')" class="text-danger small">
+                {{ getFieldError('username')}}
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label text-white" for="password">
+                Password.
+            </label>
+            <input formControlName="password"
+                class="form-control shadow-sm border-0 rounded py-2 px-3 text-dark bg-light" id="password"
+                type="password" />
+            <div *ngIf="isValidfield('password')" class="text-danger small">
+                {{ getFieldError('password')}}
+            </div>
+        </div>
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary btn-lg">
+                Log In
+            </button>
+        </div>
+    </form>
+</div>
